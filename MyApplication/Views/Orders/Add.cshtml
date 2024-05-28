@@ -1,0 +1,111 @@
+﻿@using MyApplication.ViewModels.Orders
+@model AddVM
+@{
+}
+
+<h2> Add Order</h2>
+
+<form action="/Orders/Add" method="post">
+    <div>
+        <div class="grid">
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Info)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Info)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Info)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Quantity)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Quantity)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Quantity)
+                </div>
+            </div>
+           
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.ForAGift)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.ForAGift)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.ForAGift)
+                </div>
+            </div>
+           
+             <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.CustomDesign)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.CustomDesign)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.CustomDesign)
+                </div>
+            </div>
+              <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Total)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Total)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Total)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Customer_ID)
+                </div>
+                <div class="col-2">
+                    <select id="Customer_ID" name="Customer_ID">
+                        @foreach (var customer in Model.Customers)
+                        {
+                            <option value="@customer.Id">@customer.FirstName @customer.LastName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Currency_ID)
+                </div>
+                <div class="col-2">
+                    <select id="Currency_ID" name="Currency_ID">
+                        @foreach (var currency in Model.Currencies)
+                        {
+                            <option value="@currency.Id">@currency.Material @currency.Type</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="row mb-2">
+                    <div class="col-3">
+                        @Html.ValidationMessage("summaryError")
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <input type="submit" class="right" value="Save" />
+                        <a href="/Orders/Index" class="right">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form> 

@@ -1,0 +1,84 @@
+﻿@model MyApplication.ViewModels.Currencies.SearchVM
+@{
+}
+
+<h4>Currencies</h4>
+
+<table class="table">
+    <tr>
+        <th >
+            Material
+        </th>
+        <th >
+            Type
+        </th>
+        <th >
+            Weight
+        </th>
+        <th >
+            Price
+        </th>
+        <th >
+            IsItPure
+        </th>
+        <th >
+            Total orders
+        </th>
+        <th >
+            InStock
+        </th>
+        <th  colspan="2">
+            Actions
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Currencies)
+    {
+        <tr>
+            <td >
+                @item.Material
+            </td>
+            <td >
+                @item.Type
+            </td>
+            <td >
+                @item.Weight
+            </td>
+            <td >
+                @item.Price
+            </td>
+            <td >
+                @item.IsItPure
+            </td>
+            <td >
+                @item.TotalOrders
+            </td>
+            <td >
+                @item.InStock
+            </td>
+
+            <td >
+                <a href="/Currencies/Edit?id=@item.Id" class="text-primary">Edit</a>
+            </td>
+
+            <td >
+                <a href="/Currencies/Delete?id=@item.Id" class="text-danger" method="delete" onclick="return confirm('Delete Currencies?');">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="d-flex justify-center">
+    <a href="/Currencies/Add">Add +</a>
+</div>
+
+<h4>Search</h4>
+
+<div class="search-container">
+    <form id="searchForm" action="/Currencies/Search" method="post">
+        <input type="text" id="material" placeholder="Search.." name="material">
+        <button type="submit">Search</button>
+        <a href="/Currencies/Index">Reset</a>
+    </form>
+</div>

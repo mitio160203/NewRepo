@@ -1,0 +1,101 @@
+﻿@using MyApplication.ViewModels.Orders
+@model EditVM
+@{
+}
+
+<h2> Edit Order</h2>
+
+<form action="/Orders/Edit" method="post">
+    <div>
+        <div class="grid">
+            @Html.HiddenFor(m => m.Order.Id)
+            @Html.HiddenFor(m => m.Order.DateIssued)
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Info)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Order.Info)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.Info)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Quantity)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Order.Quantity)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.Quantity)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Total)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Order.Total)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.Total)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.ForAGift)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.Order.ForAGift)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.ForAGift)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.WantCustomDesign)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.Order.WantCustomDesign)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.WantCustomDesign)
+                </div>
+            </div>
+            <div class="row mb-2">
+     <div class="col-2">
+         @Html.LabelFor(m => m.Order.Customer_ID)
+     </div>
+     <div class="col-2">
+         @Html.DropDownListFor(n=>n.Order.Customer_ID,new SelectList(Model.Customers,"Id","FirstName",Model.Order.Customer_ID))
+     </div>
+ </div>
+ <div class="row mb-2">
+     <div class="col-2">
+         @Html.LabelFor(m => m.Order.Currency_ID)
+     </div>
+     <div class="col-2">
+         @Html.DropDownListFor(n => n.Order.Currency_ID, new SelectList(Model.Currencies, "Id", "Material", Model.Order.Currency_ID))
+     </div>
+ </div>
+            <div class="row mb-2">
+                <div class="row mb-2">
+                    <div class="col-3">
+                        @Html.ValidationMessage("summaryError")
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <input type="submit" class="right" value="Save" />
+                        <a href="/Orders/Index" class="right">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form> 

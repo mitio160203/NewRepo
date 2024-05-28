@@ -1,0 +1,96 @@
+﻿@model MyApplication.ViewModels.Currencies.EditVM
+@{
+}
+
+<h2> Edit Currency</h2>
+
+<form id="editCurrencyForm" action="/Currencies/Edit" method="post">
+    <div>
+        <div class="grid">
+            @Html.HiddenFor(m => m.Currency.Id)
+            @Html.HiddenFor(m => m.Currency.InStock)
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Currency.Material)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Currency.Material)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Currency.Material)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Currency.Type)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Currency.Type)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Currency.Type)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Currency.Weight)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Currency.Weight)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Currency.Weight)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Currency.Price)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Currency.Price)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Currency.Price)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Currency.IsItPure)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.Currency.IsItPure)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Currency.IsItPure)
+                </div>
+            </div>
+             <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Currency.InStock)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.Currency.InStock)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Currency.InStock)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-3">
+                    @Html.ValidationMessage("summaryError")
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <input type="submit" class="right" value="Save" />
+                    <a href="/Currencies/Index" class="right">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
